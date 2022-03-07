@@ -1,0 +1,31 @@
+li 3 45 3
+li 5 5 4
+li 1 34 5
+li 2 45 6
+li 7 45 7
+li 2 45 1
+li 1 45 2
+simals 5 8 13 2
+simahs 2 6 11 5
+simsls 0 20 0 2
+simshs 13 12 29 18
+slmals 9 8 7 6
+slmahs 1 1 1 1
+slmsls 10 11 12 13
+slmshs 23 24 30 31
+NOP
+AH 13 23 30
+AHS 15 16 17
+BCW 29 28 31
+CGH 11 9 0 
+CLZ 5 9 23
+MAX 7 8 29
+MIN 31 30 29
+MSGN 1 8 0
+POPCNTH 23 24 1
+ROT 1 2 3
+ROTW 3 13 23
+SHLHI 9 19 29
+SFH 1 11 21
+SFHS 8 28 18
+XOR 6 16 26
