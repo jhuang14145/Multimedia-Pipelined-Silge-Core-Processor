@@ -1,0 +1,281 @@
+SCHM0106
+
+HEADER
+{
+ FREEID 34
+ VARIABLES
+ {
+  #ARCHITECTURE="behavioral"
+  #BLOCKTABLE_FILE="#HDL2DIAGRAM.bde"
+  #DEFAULT_RANGE0="<range<index=\"0\"><name=\"inst_arr\"><left=\"0\"><direction=\"to\"><right=\"63\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE1="<range<index=\"0\"><name=\"output\"><left=\"24\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #ENTITY="Instruction_Buffer"
+  #LANGUAGE="VHDL"
+  AUTHOR="jonathan.huang.3@stonybrook.edu"
+  COMPANY="Stony Brook University"
+  CREATIONDATE="11/29/2021"
+  SOURCE="..\\src\\Instruction_Buffer.vhd"
+ }
+}
+
+PAGE ""
+{
+ PAGEHEADER
+ {
+  MARGINS (200,200,200,200)
+  RECT (0,0,0,0)
+ }
+ 
+ BODY
+ {
+  VHDLDESIGNUNITHDR  1, 0, 0
+  {
+   LABEL "Design Unit Header"
+   TEXT 
+"library alu;\n"+
+"use alu.Instruction_Buffer_Type.all;\n"+
+"library ieee;\n"+
+"use ieee.std_logic_1164.all;\n"+
+"use ieee.NUMERIC_STD.all;"
+   RECT (220,260,620,538)
+   MARGINS (20,20)
+   MULTILINE
+   SYNTAXCOLORED
+   SHOWLABEL
+   SHOWTEXT
+   CORNER 10
+  }
+  PROCESS  2, 0, 0
+  {
+   LABEL "process_29"
+   TEXT 
+"process (clk)\n"+
+"                       begin\n"+
+"                         if (rising_edge(clk)) then\n"+
+"                            output <= inst_arr(PC);\n"+
+"                            PC <= PC + 1;\n"+
+"                         end if;\n"+
+"                       end process;\n"+
+"                      "
+   RECT (960,240,1361,560)
+   MARGINS (20,20)
+   SYNTAXCOLORED
+   SHOWTEXT
+   CORNER 10
+   VTX (  15, 17, 20, 27 )
+   VARIABLES
+   {
+    #UPDATE_SENS_LIST="0"
+   }
+   LIST (  20 )
+  }
+  INSTANCE  3, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="Input"
+    #CUSTOM_NAME=""
+    #LIBRARY="#terminals"
+    #REFERENCE="clk"
+    #SYMBOL="Input"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
+    #VHDL_TYPE="STD_LOGIC"
+   }
+   COORD (820,260)
+   VERTEXES ( (2,21) )
+  }
+  INSTANCE  4, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusInput"
+    #CUSTOM_NAME=""
+    #DECLARATION="(0:63)"
+    #LIBRARY="#terminals"
+    #MDA_BASE_TYPE="STD_LOGIC_VECTOR"
+    #MDA_KIND="NORMAL"
+    #MDA_RECORD_TOKEN="MDA"
+    #REFERENCE="inst_arr"
+    #SYMBOL="BusInput"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
+    #VHDL_TYPE="instruction_array"
+   }
+   COORD (820,300)
+   VERTEXES ( (2,23) )
+  }
+  INSTANCE  5, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusOutput"
+    #CUSTOM_NAME=""
+    #LIBRARY="#terminals"
+    #REFERENCE="output(24:0)"
+    #SYMBOL="BusOutput"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (1460,260)
+   VERTEXES ( (2,14) )
+  }
+  TEXT  6, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (769,260,769,260)
+   ALIGN 6
+   PARENT 3
+  }
+  TEXT  7, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (769,300,769,300)
+   ALIGN 6
+   PARENT 4
+  }
+  TEXT  8, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (1511,260,1511,260)
+   ALIGN 4
+   PARENT 5
+  }
+  NET WIRE  9, 0, 0
+  {
+   VARIABLES
+   {
+    #INITIAL_VALUE="0"
+    #NAME="PC"
+    #VHDL_TYPE="INTEGER"
+   }
+  }
+  NET WIRE  10, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="clk"
+    #VHDL_TYPE="STD_LOGIC"
+   }
+  }
+  NET MDARRAY  11, 0, 0
+  {
+   VARIABLES
+   {
+    #DECLARATION="(0:63)"
+    #MDA_BASE_TYPE="STD_LOGIC_VECTOR"
+    #MDA_KIND="NORMAL"
+    #MDA_RECORD_TOKEN="MDA"
+    #NAME="inst_arr"
+    #VHDL_TYPE="instruction_array"
+   }
+  }
+  NET BUS  12, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="inst_arr(PC)(24:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  13, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="output(24:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  VTX  14, 0, 0
+  {
+   COORD (1460,260)
+  }
+  VTX  15, 0, 0
+  {
+   COORD (1361,260)
+  }
+  BUS  16, 0, 0
+  {
+   NET 13
+   VTX 14, 15
+  }
+  VTX  17, 0, 0
+  {
+   COORD (1361,300)
+  }
+  VTX  18, 0, 0
+  {
+   COORD (1440,300)
+  }
+  WIRE  19, 0, 0
+  {
+   NET 9
+   VTX 17, 18
+  }
+  VTX  20, 0, 0
+  {
+   COORD (960,260)
+  }
+  VTX  21, 0, 0
+  {
+   COORD (820,260)
+  }
+  WIRE  22, 0, 0
+  {
+   NET 10
+   VTX 20, 21
+  }
+  VTX  23, 0, 0
+  {
+   COORD (820,300)
+  }
+  VTX  24, 0, 0
+  {
+   COORD (940,300)
+  }
+  MDARRAY  25, 0, 0
+  {
+   NET 11
+   VTX 23, 24
+  }
+  TEXT  26, 0, 1
+  {
+   TEXT "$#NAME"
+   RECT (880,300,880,300)
+   ALIGN 9
+   PARENT 25
+  }
+  VTX  27, 0, 0
+  {
+   COORD (960,300)
+  }
+  VTX  28, 0, 0
+  {
+   COORD (940,300)
+  }
+  BUS  29, 0, 0
+  {
+   NET 12
+   VTX 27, 28
+  }
+  VTX  30, 0, 0
+  {
+   COORD (940,290)
+  }
+  VTX  31, 0, 0
+  {
+   COORD (940,310)
+  }
+  MDARRAY  32, 0, 0
+  {
+   NET 11
+   VTX 30, 24
+  }
+  MDARRAY  33, 0, 0
+  {
+   NET 11
+   VTX 24, 31
+   BUSTAPS ( 28 )
+  }
+ }
+ 
+}
+

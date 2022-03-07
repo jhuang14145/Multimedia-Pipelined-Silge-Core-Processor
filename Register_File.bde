@@ -1,0 +1,696 @@
+SCHM0106
+
+HEADER
+{
+ FREEID 94
+ VARIABLES
+ {
+  #ARCHITECTURE="behavior"
+  #BLOCKTABLE_FILE="#HDL2DIAGRAM.bde"
+  #DEFAULT_RANGE0="<range<index=\"0\"><name=\"readaddr1\"><left=\"4\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE1="<range<index=\"0\"><name=\"readaddr1_out\"><left=\"127\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE2="<range<index=\"0\"><name=\"readaddr2\"><left=\"4\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE3="<range<index=\"0\"><name=\"readaddr2_out\"><left=\"127\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE4="<range<index=\"0\"><name=\"readaddr3\"><left=\"4\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE5="<range<index=\"0\"><name=\"readaddr3_out\"><left=\"127\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE6="<range<index=\"0\"><name=\"write_addr\"><left=\"4\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #DEFAULT_RANGE7="<range<index=\"0\"><name=\"write_data\"><left=\"127\"><direction=\"downto\"><right=\"0\"><initial_value=\"\"><delay=\"\">>"
+  #ENTITY="Register_File"
+  #LANGUAGE="VHDL"
+  AUTHOR="jonathan.huang.3@stonybrook.edu"
+  COMPANY="Stony Brook University"
+  CREATIONDATE="11/29/2021"
+  SOURCE="..\\src\\Register_File.vhd"
+ }
+}
+
+PAGE ""
+{
+ PAGEHEADER
+ {
+  PAGESIZE (2611,1350)
+  MARGINS (200,200,200,200)
+  RECT (0,0,0,0)
+ }
+ 
+ BODY
+ {
+  VHDLDESIGNUNITHDR  1, 0, 0
+  {
+   LABEL "Design Unit Header"
+   TEXT 
+"library ieee;\n"+
+"use ieee.std_logic_1164.all;\n"+
+"use ieee.NUMERIC_STD.all;"
+   RECT (220,260,620,472)
+   MARGINS (20,20)
+   MULTILINE
+   SYNTAXCOLORED
+   SHOWLABEL
+   SHOWTEXT
+   CORNER 10
+  }
+  ARCHITECTUREDECLARATIONS  2, 0, 0
+  {
+   LABEL "Architecture Declaration"
+   TEXT 
+"--Added by Active-HDL. Do not change code inside this section.\n"+
+"type register_array is array (0 to 31) of STD_LOGIC_VECTOR(127 downto 0);\n"+
+"--End of extra code."
+   RECT (220,472,620,684)
+   MARGINS (20,20)
+   MULTILINE
+   SYNTAXCOLORED
+   SHOWLABEL
+   SHOWTEXT
+   CORNER 10
+  }
+  PROCESS  3, 0, 0
+  {
+   LABEL "process_30"
+   TEXT 
+"process (clk)\n"+
+"                       begin\n"+
+"                         if (rising_edge(clk)) then\n"+
+"                            if (write_en = '1') then\n"+
+"                               arr(to_integer(unsigned(write_addr))) <= write_data;\n"+
+"                            end if;\n"+
+"                         end if;\n"+
+"                       end process;\n"+
+"                      "
+   RECT (1100,240,1501,580)
+   MARGINS (20,20)
+   SYNTAXCOLORED
+   SHOWTEXT
+   CORNER 10
+   VTX (  51, 73, 76, 79, 82 )
+   VARIABLES
+   {
+    #UPDATE_SENS_LIST="0"
+   }
+   LIST (  73 )
+  }
+  PROCESS  4, 0, 0
+  {
+   LABEL "process_41"
+   TEXT 
+"process (arr)\n"+
+"                       begin\n"+
+"                         ReadAddr1_out <= arr(to_integer(unsigned(ReadAddr1)));\n"+
+"                         ReadAddr2_out <= arr(to_integer(unsigned(ReadAddr2)));\n"+
+"                         ReadAddr3_out <= arr(to_integer(unsigned(ReadAddr3)));\n"+
+"                       end process;\n"+
+"                      "
+   RECT (1640,240,2041,520)
+   MARGINS (20,20)
+   SYNTAXCOLORED
+   SHOWTEXT
+   CORNER 10
+   VTX (  38, 41, 45, 47, 54, 63, 66 )
+   VARIABLES
+   {
+    #UPDATE_SENS_LIST="0"
+   }
+   LIST (  47 )
+  }
+  INSTANCE  5, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusInput"
+    #CUSTOM_NAME=""
+    #LIBRARY="#terminals"
+    #REFERENCE="ReadAddr1(4:0)"
+    #SYMBOL="BusInput"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (960,640)
+   VERTEXES ( (2,57) )
+  }
+  INSTANCE  6, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusInput"
+    #CUSTOM_NAME=""
+    #LIBRARY="#terminals"
+    #REFERENCE="ReadAddr2(4:0)"
+    #SYMBOL="BusInput"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (960,680)
+   VERTEXES ( (2,60) )
+  }
+  INSTANCE  7, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusInput"
+    #CUSTOM_NAME=""
+    #LIBRARY="#terminals"
+    #REFERENCE="ReadAddr3(4:0)"
+    #SYMBOL="BusInput"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (960,720)
+   VERTEXES ( (2,69) )
+  }
+  INSTANCE  8, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusOutput"
+    #CUSTOM_NAME=""
+    #LIBRARY="#terminals"
+    #REFERENCE="ReadAddr1_out(127:0)"
+    #SYMBOL="BusOutput"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (2140,340)
+   VERTEXES ( (2,39) )
+  }
+  INSTANCE  9, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusOutput"
+    #CUSTOM_NAME=""
+    #LIBRARY="#terminals"
+    #REFERENCE="ReadAddr2_out(127:0)"
+    #SYMBOL="BusOutput"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (2140,260)
+   VERTEXES ( (2,42) )
+  }
+  INSTANCE  10, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusOutput"
+    #CUSTOM_NAME=""
+    #LIBRARY="#terminals"
+    #REFERENCE="ReadAddr3_out(127:0)"
+    #SYMBOL="BusOutput"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (2140,300)
+   VERTEXES ( (2,44) )
+  }
+  INSTANCE  11, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusInput"
+    #CUSTOM_NAME=""
+    #LIBRARY="#terminals"
+    #REFERENCE="write_addr(4:0)"
+    #SYMBOL="BusInput"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (960,340)
+   VERTEXES ( (2,75) )
+  }
+  INSTANCE  12, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="BusInput"
+    #CUSTOM_NAME=""
+    #LIBRARY="#terminals"
+    #REFERENCE="write_data(127:0)"
+    #SYMBOL="BusInput"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+   COORD (960,380)
+   VERTEXES ( (2,78) )
+  }
+  INSTANCE  13, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="Input"
+    #CUSTOM_NAME=""
+    #LIBRARY="#terminals"
+    #REFERENCE="write_en"
+    #SYMBOL="Input"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
+    #VHDL_TYPE="STD_LOGIC"
+   }
+   COORD (960,300)
+   VERTEXES ( (2,81) )
+  }
+  INSTANCE  14, 0, 0
+  {
+   VARIABLES
+   {
+    #COMPONENT="Input"
+    #CUSTOM_NAME=""
+    #LIBRARY="#terminals"
+    #REFERENCE="clk"
+    #SYMBOL="Input"
+    #SYMBOL_GLOBALLY_UNIQUE_IDENTIFIER=""
+    #VHDL_TYPE="STD_LOGIC"
+   }
+   COORD (960,260)
+   VERTEXES ( (2,72) )
+  }
+  TEXT  15, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (909,640,909,640)
+   ALIGN 6
+   PARENT 5
+  }
+  TEXT  16, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (909,680,909,680)
+   ALIGN 6
+   PARENT 6
+  }
+  TEXT  17, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (909,720,909,720)
+   ALIGN 6
+   PARENT 7
+  }
+  TEXT  18, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (2191,340,2191,340)
+   ALIGN 4
+   PARENT 8
+  }
+  TEXT  19, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (2191,260,2191,260)
+   ALIGN 4
+   PARENT 9
+  }
+  TEXT  20, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (2191,300,2191,300)
+   ALIGN 4
+   PARENT 10
+  }
+  TEXT  21, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (909,340,909,340)
+   ALIGN 6
+   PARENT 11
+  }
+  TEXT  22, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (909,380,909,380)
+   ALIGN 6
+   PARENT 12
+  }
+  TEXT  23, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (909,300,909,300)
+   ALIGN 6
+   PARENT 13
+  }
+  TEXT  24, 0, 0
+  {
+   TEXT "$#REFERENCE"
+   RECT (909,260,909,260)
+   ALIGN 6
+   PARENT 14
+  }
+  NET WIRE  25, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="RegWrite"
+    #VHDL_TYPE="STD_LOGIC"
+   }
+  }
+  NET MDARRAY  26, 0, 0
+  {
+   VARIABLES
+   {
+    #DECLARATION="(0:31)"
+    #MDA_BASE_TYPE="STD_LOGIC_VECTOR"
+    #MDA_KIND="NORMAL"
+    #MDA_RECORD_TOKEN="MDA"
+    #NAME="arr"
+    #VHDL_TYPE="register_array"
+   }
+  }
+  NET BUS  27, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="arr(to_integer(unsigned(write_addr)))(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET WIRE  28, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="clk"
+    #VHDL_TYPE="STD_LOGIC"
+   }
+  }
+  NET BUS  29, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="ReadAddr1(4:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  30, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="ReadAddr1_out(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  31, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="ReadAddr2(4:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  32, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="ReadAddr2_out(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  33, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="ReadAddr3(4:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  34, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="ReadAddr3_out(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  35, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="write_addr(4:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET BUS  36, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="write_data(127:0)"
+    #VHDL_TYPE="STD_LOGIC_VECTOR"
+   }
+  }
+  NET WIRE  37, 0, 0
+  {
+   VARIABLES
+   {
+    #NAME="write_en"
+    #VHDL_TYPE="STD_LOGIC"
+   }
+  }
+  VTX  38, 0, 0
+  {
+   COORD (2041,340)
+  }
+  VTX  39, 0, 0
+  {
+   COORD (2140,340)
+  }
+  BUS  40, 0, 0
+  {
+   NET 30
+   VTX 38, 39
+  }
+  VTX  41, 0, 0
+  {
+   COORD (2041,260)
+  }
+  VTX  42, 0, 0
+  {
+   COORD (2140,260)
+  }
+  BUS  43, 0, 0
+  {
+   NET 32
+   VTX 41, 42
+  }
+  VTX  44, 0, 0
+  {
+   COORD (2140,300)
+  }
+  VTX  45, 0, 0
+  {
+   COORD (2041,300)
+  }
+  BUS  46, 0, 0
+  {
+   NET 34
+   VTX 44, 45
+  }
+  VTX  47, 0, 0
+  {
+   COORD (1640,260)
+  }
+  VTX  48, 0, 0
+  {
+   COORD (1580,260)
+  }
+  MDARRAY  49, 0, 0
+  {
+   NET 26
+   VTX 47, 48
+  }
+  TEXT  50, 0, 1
+  {
+   TEXT "$#NAME"
+   RECT (1610,260,1610,260)
+   ALIGN 9
+   PARENT 49
+  }
+  VTX  51, 0, 0
+  {
+   COORD (1501,260)
+  }
+  VTX  52, 0, 0
+  {
+   COORD (1580,260)
+  }
+  BUS  53, 0, 0
+  {
+   NET 27
+   VTX 51, 52
+  }
+  VTX  54, 0, 0
+  {
+   COORD (1640,300)
+  }
+  VTX  55, 0, 0
+  {
+   COORD (1580,300)
+  }
+  BUS  56, 0, 0
+  {
+   NET 29
+   VTX 54, 55
+  }
+  VTX  57, 0, 0
+  {
+   COORD (960,640)
+  }
+  VTX  58, 0, 0
+  {
+   COORD (1580,640)
+  }
+  BUS  59, 0, 0
+  {
+   NET 29
+   VTX 57, 58
+  }
+  VTX  60, 0, 0
+  {
+   COORD (960,680)
+  }
+  VTX  61, 0, 0
+  {
+   COORD (1600,680)
+  }
+  BUS  62, 0, 0
+  {
+   NET 31
+   VTX 60, 61
+  }
+  VTX  63, 0, 0
+  {
+   COORD (1640,340)
+  }
+  VTX  64, 0, 0
+  {
+   COORD (1600,340)
+  }
+  BUS  65, 0, 0
+  {
+   NET 31
+   VTX 63, 64
+  }
+  VTX  66, 0, 0
+  {
+   COORD (1640,380)
+  }
+  VTX  67, 0, 0
+  {
+   COORD (1620,380)
+  }
+  BUS  68, 0, 0
+  {
+   NET 33
+   VTX 66, 67
+  }
+  VTX  69, 0, 0
+  {
+   COORD (960,720)
+  }
+  VTX  70, 0, 0
+  {
+   COORD (1620,720)
+  }
+  BUS  71, 0, 0
+  {
+   NET 33
+   VTX 69, 70
+  }
+  VTX  72, 0, 0
+  {
+   COORD (960,260)
+  }
+  VTX  73, 0, 0
+  {
+   COORD (1100,260)
+  }
+  WIRE  74, 0, 0
+  {
+   NET 28
+   VTX 72, 73
+  }
+  VTX  75, 0, 0
+  {
+   COORD (960,340)
+  }
+  VTX  76, 0, 0
+  {
+   COORD (1100,340)
+  }
+  BUS  77, 0, 0
+  {
+   NET 35
+   VTX 75, 76
+  }
+  VTX  78, 0, 0
+  {
+   COORD (960,380)
+  }
+  VTX  79, 0, 0
+  {
+   COORD (1100,380)
+  }
+  BUS  80, 0, 0
+  {
+   NET 36
+   VTX 78, 79
+  }
+  VTX  81, 0, 0
+  {
+   COORD (960,300)
+  }
+  VTX  82, 0, 0
+  {
+   COORD (1100,300)
+  }
+  WIRE  83, 0, 0
+  {
+   NET 37
+   VTX 81, 82
+  }
+  VTX  84, 0, 0
+  {
+   COORD (2210,220)
+  }
+  VTX  85, 0, 0
+  {
+   COORD (2310,220)
+  }
+  WIRE  86, 0, 0
+  {
+   NET 25
+   VTX 84, 85
+  }
+  VTX  87, 0, 0
+  {
+   COORD (1580,250)
+  }
+  VTX  88, 0, 0
+  {
+   COORD (1580,270)
+  }
+  MDARRAY  89, 0, 0
+  {
+   NET 26
+   VTX 87, 48
+  }
+  MDARRAY  90, 0, 0
+  {
+   NET 26
+   VTX 48, 88
+   BUSTAPS ( 52 )
+  }
+  BUS  91, 0, 0
+  {
+   NET 29
+   VTX 55, 58
+  }
+  BUS  92, 0, 0
+  {
+   NET 31
+   VTX 64, 61
+  }
+  BUS  93, 0, 0
+  {
+   NET 33
+   VTX 67, 70
+  }
+ }
+ 
+}
+
